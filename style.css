@@ -1,0 +1,88 @@
+/* style.css */
+
+body {
+    font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #1a1a1a; /* 배경색: 아주 어두운 회색 (검은색에 가깝게) */
+    color: #FFBF00; /* 기본 글씨색: 호박색 (Amber) */
+}
+
+/* header: 이미지가 제목 위에 가운데 오도록 설정 */
+header {
+    background-color: #333; /* 헤더 배경색: 약간 어두운 회색 */
+    color: #FFBF00;
+    padding: 60px 20px;
+    text-align: center; /* 헤더 안의 모든 요소를 가운데 정렬 */
+    margin-bottom: 20px;
+}
+
+/* .profile-photo: 이미지 스타일 및 간격 */
+.profile-photo {
+    width: 180px !important;
+    height: 180px !important;
+    object-fit: cover;
+    border-radius: 50%; /* 원형 모양 */
+    border: 3px solid #FFBF00;
+    margin-top: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+    
+    /* ⭐⭐⭐ 이 부분이 사진 아래 간격을 확실하게 만듭니다! ⭐⭐⭐ */
+    margin-bottom: 30px;
+    
+    display: block; /* 중앙 정렬을 위한 설정 */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+header h1 {
+    /* 사진 아래 마진이 생겼으므로 h1의 윗 마진은 줄입니다. */
+    margin: 10px 0 10px 0;
+    font-size: 2.5em;
+    color: #FFBF00;
+    font-weight: 900; /* 볼드체 적용 */
+}
+
+
+/* 아래는 기존 코드에서 색상만 변경하거나 유지 */
+section {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #2b2b2b; /* 섹션 배경색 */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+h2 {
+    color: #FFBF00; /* 제목 강조색: 호박색 */
+    border-bottom: 1px solid #555;
+    padding-bottom: 10px;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+li {
+    margin-bottom: 8px;
+}
+
+a {
+    color: #FFD700; /* 링크 색상 */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.8em;
+    color: #aaaaaa; /* 푸터 글씨색 */
+}
+/* 푸터 뒤에 있던 불필요한 '}}'는 삭제되었습니다! */
