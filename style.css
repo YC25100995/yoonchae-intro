@@ -1,51 +1,70 @@
-/* style.css */
+/* style.css - 최종 버전 (모든 스타일 및 애니메이션, 팝업 스타일 포함) */
 
+/* ---------------------------------------------------- */
+/* 1. 기본 설정 (검은 배경, 호박색 글씨) */
+/* ---------------------------------------------------- */
 body {
     font-family: 'Malgun Gothic', '맑은 고딕', sans-serif;
-    line-height: 1.6;
+    line-height: 1.8; /* 행간 확대 */
     margin: 0;
     padding: 0;
-    background-color: #1a1a1a; /* 배경색: 아주 어두운 회색 (검은색에 가깝게) */
+    background-color: #1a1a1a; /* 배경색: 아주 어두운 회색 */
     color: #FFBF00; /* 기본 글씨색: 호박색 (Amber) */
 }
 
-/* header: 이미지가 제목 위에 가운데 오도록 설정 */
+/* ---------------------------------------------------- */
+/* 2. 헤더 스타일 (사진, 이름 정렬 - Flexbox 적용) */
+/* ---------------------------------------------------- */
 header {
-    background-color: #333; /* 헤더 배경색: 약간 어두운 회색 */
+    background-color: #333; /* 헤더 배경색 */
     color: #FFBF00;
-    padding: 60px 20px;
-    text-align: center; /* 헤더 안의 모든 요소를 가운데 정렬 */
+    padding: 80px 20px; /* 헤더 상하 여백 확대 */
+    text-align: center; /* 전체 가운데 정렬 */
     margin-bottom: 20px;
 }
 
-/* .profile-photo: 이미지 스타일 및 간격 */
+/* 이름/사진 컨테이너: Flexbox를 사용해 가로 정렬 */
+.name-photo-container {
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    margin-bottom: 40px; /* 프로필/이름 아래 간격 확대 */
+}
+
+/* h1 (이/름) 스타일 및 DotGothic16 폰트 적용 - 크기 확대 */
+.name-part {
+    font-family: 'DotGothic16', sans-serif; 
+    font-size: 6em; /* 글자 크기 확대 */
+    color: #FFBF00;
+    font-weight: 900;
+    margin: 0; 
+    line-height: 1.1;
+}
+
+/* .profile-photo: 이미지 스타일 및 간격 - 크기 확대 */
 .profile-photo {
-    width: 180px !important;
-    height: 180px !important;
+    width: 200px !important; 
+    height: 200px !important; 
     object-fit: cover;
     border-radius: 50%; /* 원형 모양 */
     border: 3px solid #FFBF00;
-    margin-top: 15px;
+    
+    /* 이름과 사진 사이 간격 */
+    margin: 0 25px; 
+    
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    
-    /* ⭐⭐⭐ 이 부분이 사진 아래 간격을 확실하게 만듭니다! ⭐⭐⭐ */
-    margin-bottom: 30px;
-    
-    display: block; /* 중앙 정렬을 위한 설정 */
-    margin-left: auto;
-    margin-right: auto;
 }
 
-header h1 {
-    /* 사진 아래 마진이 생겼으므로 h1의 윗 마진은 줄입니다. */
+/* 슬로건 텍스트 스타일 */
+.slogan {
     margin: 10px 0 10px 0;
-    font-size: 2.5em;
-    color: #FFBF00;
-    font-weight: 900; /* 볼드체 적용 */
+    font-size: 1.2em;
+    font-weight: bold;
 }
 
-
-/* 아래는 기존 코드에서 색상만 변경하거나 유지 */
+/* ---------------------------------------------------- */
+/* 3. 섹션 및 링크 스타일 */
+/* ---------------------------------------------------- */
 section {
     max-width: 800px;
     margin: 20px auto;
@@ -56,7 +75,7 @@ section {
 }
 
 h2 {
-    color: #FFBF00; /* 제목 강조색: 호박색 */
+    color: #FFBF00; /* 제목 강조색 */
     border-bottom: 1px solid #555;
     padding-bottom: 10px;
 }
@@ -71,7 +90,7 @@ li {
 }
 
 a {
-    color: #FFD700; /* 링크 색상 */
+    color: #FFD700; /* 링크 색상: 이전 강조색으로 복구 */
     text-decoration: none;
 }
 
@@ -79,10 +98,105 @@ a:hover {
     text-decoration: underline;
 }
 
+/* ---------------------------------------------------- */
+/* 4. 푸터 스타일 */
+/* ---------------------------------------------------- */
 footer {
     text-align: center;
     padding: 20px;
     font-size: 0.8em;
     color: #aaaaaa; /* 푸터 글씨색 */
 }
-/* 푸터 뒤에 있던 불필요한 '}}'는 삭제되었습니다! */
+
+/* ---------------------------------------------------- */
+/* 5. 애니메이션 (튀어나오는 효과) */
+/* ---------------------------------------------------- */
+
+/* @keyframes: 애니메이션 효과 정의 */
+@keyframes fade-in-up {
+    0% {
+        opacity: 0; 
+        transform: translateY(20px); 
+    }
+    100% {
+        opacity: 1; 
+        transform: translateY(0); 
+    }
+}
+
+/* 애니메이션을 header와 section에 적용 */
+header, section {
+    opacity: 0; /* 애니메이션 전에는 숨기기 */
+    animation: fade-in-up 0.8s ease-out 0.1s forwards; /* 0.8초 동안 실행 */
+}
+
+/* 섹션에 시차 적용 */
+section:nth-child(2) { 
+    animation-delay: 0.3s; 
+}
+
+section:nth-child(3) { 
+    animation-delay: 0.5s; 
+}
+
+/* ---------------------------------------------------- */
+/* ⭐ 6. 유령 팝업 스타일 및 애니메이션 ⭐ */
+/* ---------------------------------------------------- */
+
+/* 전체 팝업 창 (배경 포함) */
+#ghost-popup {
+    display: none; /* JS로 'flex'로 변경되기 전까지 숨김 */
+    position: fixed; /* 화면에 고정 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* 어둡고 투명한 배경 */
+    justify-content: center; /* 수평 중앙 정렬 */
+    align-items: center; /* 수직 중앙 정렬 */
+    z-index: 9999; /* 다른 모든 요소 위에 보이게 설정 */
+    transition: opacity 0.5s ease-in-out; 
+}
+
+/* 팝업 내부 콘텐츠 (유령 이미지를 감싸는 부분) */
+.popup-content {
+    animation: bounce-in 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+    position: relative; /* BOO! 텍스트를 이미지 위에 겹치게 하기 위해 필요 */
+}
+
+/* 유령 이미지 스타일 */
+.popup-ghost {
+    width: 250px; 
+    height: 250px;
+    object-fit: cover;
+    }
+
+/* ⭐ BOO! 텍스트 스타일 ⭐ */
+.boo-text {
+    position: absolute; /* 유령 이미지 위에 겹치게 하기 위해 절대 위치 */
+    font-family: 'DotGothic16', sans-serif; 
+    font-size: 5em; 
+    color: #FFFFFF;
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 
+                 0 0 20px rgba(255, 215, 0, 0.6);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 정확히 중앙으로 정렬 */
+    margin-top: 20px; /* 유령 얼굴에 겹치지 않도록 살짝 아래로 */
+}
+
+/* 팝업 등장 애니메이션 (튀어나오는 효과) */
+@keyframes bounce-in {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1); 
+    }
+    100% {
+        transform: scale(1); 
+        opacity: 1;
+    }
+}
