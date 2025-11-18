@@ -200,3 +200,45 @@ section:nth-child(3) {
         opacity: 1;
     }
 }
+/* ---------------------------------------------------- */
+/* ⭐ 7. 모바일 반응형 디자인 (Media Query) ⭐ */
+/* ---------------------------------------------------- */
+@media (max-width: 768px) {
+    /* 1. 헤더 (이름/사진) 크기 줄이기 */
+    .name-photo-container {
+        flex-direction: column; /* 이름을 세로로 쌓기 */
+        margin-bottom: 20px;
+    }
+
+    .name-part {
+        font-size: 3.5em; /* 이름 폰트 크기 대폭 축소 */
+        margin: 10px 0; /* 세로로 쌓았을 때 간격 */
+    }
+    
+    .profile-photo {
+        width: 150px !important; /* 프로필 사진 크기 축소 */
+        height: 150px !important;
+        margin: 10px 0; /* 세로로 쌓았을 때 간격 */
+    }
+
+    .slogan {
+        font-size: 1em; /* 슬로건 폰트 크기 축소 */
+    }
+    
+    /* 2. 섹션 여백 조정 */
+    section {
+        margin: 10px;
+        padding: 15px;
+    }
+
+    /* 3. 팝업 크기 축소 */
+    .popup-ghost {
+        width: 250px; /* 팝업 유령 이미지 크기 축소 */
+        height: 250px;
+    }
+    
+    .boo-text {
+        font-size: 5em; /* BOO! 텍스트 크기 축소 */
+        margin-top: 15px;
+    }
+}
